@@ -4,6 +4,7 @@
   import injectedModule from '@web3-onboard/injected-wallets'
   import torusModule from '@web3-onboard/torus'
   import walletConnectModule from '@web3-onboard/walletconnect'
+  import fortmaticModule from '@web3-onboard/fortmatic'
 
   const injected = injectedModule()
   const walletConnect = walletConnectModule({
@@ -13,12 +14,13 @@
     }
   })
   const torus = torusModule()
+  const fortmatic = fortmaticModule({ apiKey: 'pk_live_A683898B93FDA4D0' })
 
   const INFURA_ID = '3edf9a87396a4ce6b5b44b54d24e9041'
 
   async function connectWallet() {
     const onboard = Onboard({
-      wallets: [injected, walletConnect, torus],
+      wallets: [injected, walletConnect, torus, fortmatic],
       chains: [
         {
           id: '0x1',
