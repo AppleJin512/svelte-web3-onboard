@@ -1,0 +1,53 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add svelte-frappe-charts
+
+PATH: 
+  C:\Users\apple\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\apple\AppData\Local\Programs\Python\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Users\apple\AppData\Roaming\nvm\v16.14.0;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\apple\AppData\Local\Microsoft\WindowsApps;C:\Users\apple\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs;C:\Users\apple\AppData\Roaming\nvm\v16.14.0;C:\Users\apple\AppData\Roaming\nvm;C:\Program Files\nodejs
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  14.17.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'D:\work\sveltejs-test\svelte-test-prj\node_modules\esbuild-windows-64\esbuild.exe'
+
+npm manifest: 
+  {
+      "name": "routify-starter",
+      "private": true,
+      "scripts": {
+          "dev": "run-p dev:*",
+          "dev:routify": "routify",
+          "dev:vite": "vite",
+          "preview": "vite preview",
+          "build": "run-s build:*",
+          "build:routify": "routify -b",
+          "build:vite": "vite build"
+      },
+      "devDependencies": {
+          "@roxi/routify": "^2.18.4",
+          "@sveltejs/vite-plugin-svelte": "^1.0.0-next.34",
+          "autoprefixer": "^10.4.2",
+          "npm-run-all": "^4.1.5",
+          "postcss": "^8.4.5",
+          "postcss-import": "^14.0.2",
+          "svelte": "^3.45.0",
+          "svelte-preprocess": "^4.10.1",
+          "tailwindcss": "^3.0.24",
+          "vite": "^2.7.10"
+      },
+      "dependencies": {
+          "axios": "^0.27.2"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
