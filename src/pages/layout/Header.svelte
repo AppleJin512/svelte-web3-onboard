@@ -2,14 +2,23 @@
     
   import Onboard from '@web3-onboard/core'
   import injectedModule from '@web3-onboard/injected-wallets'
+  import torusModule from '@web3-onboard/torus'
+  import walletConnectModule from '@web3-onboard/walletconnect'
 
   const injected = injectedModule()
+  const walletConnect = walletConnectModule({
+    bridge: 'YOUR_CUSTOM_BRIDGE_SERVER',
+    qrcodeModalOptions: {
+      mobileLinks: ['rainbow', 'metamask', 'argent', 'trust', 'imtoken', 'pillar']
+    }
+  })
+  const torus = torusModule()
 
   const INFURA_ID = '3edf9a87396a4ce6b5b44b54d24e9041'
 
   async function connectWallet() {
     const onboard = Onboard({
-      wallets: [injected],
+      wallets: [injected, walletConnect, torus],
       chains: [
         {
           id: '0x1',
