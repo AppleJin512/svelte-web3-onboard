@@ -17,41 +17,41 @@
   const fortmatic = fortmaticModule({ apiKey: 'pk_live_A683898B93FDA4D0' })
 
   const INFURA_ID = '3edf9a87396a4ce6b5b44b54d24e9041'
+  const onboard = Onboard({
+    wallets: [injected, walletConnect, torus, fortmatic],
+    chains: [
+      {
+        id: '0x1',
+        token: 'ETH',
+        label: 'Ethereum',
+        rpcUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`
+      },
+      {
+        id: '0x89',
+        token: 'MATIC',
+        label: 'Polygon',
+        rpcUrl: 'https://matic-mainnet.chainstacklabs.com'
+      }
+    ],
+    appMetadata: {
+      name: 'Routify Test App',
+      icon: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path fill="red" stroke="green"
+                d="M 10,30
+                A 20,20 0,0,1 50,30
+                A 20,20 0,0,1 90,30
+                Q 90,60 50,90
+                Q 10,60 10,30 z" />
+            </svg>`,
+      description: 'Wallet Connection using Onboard',
+      recommendedInjectedWallets: [
+        { name: 'MetaMask', url: 'https://metamask.io' },
+        { name: 'Coinbase', url: 'https://wallet.coinbase.com/' }
+      ]
+    }
+  });
 
   async function connectWallet() {
-    const onboard = Onboard({
-      wallets: [injected, walletConnect, torus, fortmatic],
-      chains: [
-        {
-          id: '0x1',
-          token: 'ETH',
-          label: 'Ethereum',
-          rpcUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`
-        },
-        {
-          id: '0x89',
-          token: 'MATIC',
-          label: 'Polygon',
-          rpcUrl: 'https://matic-mainnet.chainstacklabs.com'
-        }
-      ],
-      appMetadata: {
-        name: 'Routify Test App',
-        icon: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path fill="red" stroke="green"
-                  d="M 10,30
-                  A 20,20 0,0,1 50,30
-                  A 20,20 0,0,1 90,30
-                  Q 90,60 50,90
-                  Q 10,60 10,30 z" />
-              </svg>`,
-        description: 'Wallet Connection using Onboard',
-        recommendedInjectedWallets: [
-          { name: 'MetaMask', url: 'https://metamask.io' },
-          { name: 'Coinbase', url: 'https://wallet.coinbase.com/' }
-        ]
-      }
-    })
     const wallets = await onboard.connectWallet()
   }
 </script>
