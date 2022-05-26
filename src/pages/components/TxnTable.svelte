@@ -1,26 +1,10 @@
 <script>
-    export let data = {};
+    import { txnsValue } from './../store.js';
     
-    const date_time = new Date(Number(data.timestamp) * 1000);
-    let tableData = [
-        {
-            hash : '',
-            from : '',
-            to : '',
-            value: '',
-            txnFee: ''
-        },
-    ];
-    tableData = data.txns.map(tx => ({
-        hash: tx.hash,
-        from: tx.from,
-        to: tx.to,
-        value: tx.value,
-        txnFee: (Number(tx.gas) * Number(tx.gasPrice) / 1000000000 / 1000000000).toFixed(12)
-    }));
 </script>
 
-<h2 class="ml-4 mt-8">Latest 5 Transactions on {date_time}</h2>
+<h2 class="ml-4 mt-8">Latest 5 Transactions on {new Date(Number($txnsValue.timestamp) * 1000)}</h2>
+
 <div class="ml-4 mt-2 w-fit">
     <table class="border-collapse border border-slate-200">
         <thead class="text-left text-xs text-gray-700 bg-gray-50">
@@ -33,18 +17,15 @@
             </tr>
         </thead>
         <tbody>
-            {#each tableData as {hash, from, to, value, txnFee}}
+            {#each $txnsValue.txns as {hash, from, to, value, gas, gasPrice}}
             <tr class="">
-                <td class="px-4 py-3 border-r">{hash.slice(0, 25)}...</td>
-                <td class="px-4 py-3 border-r">{from.slice(0, 20)}...</td>
-                <td class="px-4 py-3 border-r">{to.slice(0, 20)}...</td>
+                <td class="px-4 py-3 border-r">{hash.slice(0, 20)}...</td>
+                <td class="px-4 py-3 border-r">{from.slice(0, 16)}...</td>
+                <td class="px-4 py-3 border-r">{to.slice(0, 16)}...</td>
                 <td class="px-4 py-3 border-r">{value}</td>
-                <td class="px-4 py-3">{txnFee}</td>
+                <td class="px-4 py-3">{ (Number(gas) * Number(gasPrice) / 1000000000 / 1000000000).toFixed(8)}</td>
             </tr>
             {/each}
         </tbody>
     </table>
 </div>
-
-
-

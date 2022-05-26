@@ -1,14 +1,14 @@
 export const getPriceData = async () => {
-	
-	const to_time = (Number(new Date()) / 1000).toFixed(0);
-	const from_time = to_time - 1800;
 
+	const to_time = Number(new Date()) / 1000;
+	const from_time = to_time - 2000;
+	
 	try {
-		const response = await fetch(`https://api.coingecko.com/api/v3/coins/ethereum/market_chart/range?vs_currency=usd&from=${from_time.toString()}&to=${to_time.toString()}`)
+		const response = await fetch(`https://api.coingecko.com/api/v3/coins/ethereum/market_chart/range?vs_currency=usd&from=${from_time.toFixed(0)}&to=${to_time.toFixed(0)}`)
 			.then(res => {
 				return res.json();
 			})
-			
+		//console.log("response", response);
 		return response;
 	} catch (error) {
 		console.error(error);
