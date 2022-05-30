@@ -25,8 +25,6 @@ Please implement a simple web site which can:
 
 The `Connect Wallet` function must be implemented as the following:
 
-![connect wallet](./connect-wallet.png)
-
 Reference: the "Connect Wallet" button of [1inch.io](https://app.1inch.io/).
 
 ## Deployment
