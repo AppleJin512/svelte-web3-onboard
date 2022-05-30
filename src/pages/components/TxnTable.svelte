@@ -19,9 +19,9 @@
         <tbody>
             {#each $txnsValue.txns as {hash, from, to, value, gas, gasPrice}}
             <tr class="">
-                <td class="px-4 py-3 border-r">{hash.slice(0, 20)}...</td>
-                <td class="px-4 py-3 border-r">{from.slice(0, 16)}...</td>
-                <td class="px-4 py-3 border-r">{to.slice(0, 16)}...</td>
+                <td class="px-4 py-3 border-r">{hash? hash.slice(0, 20) : ''}...</td>
+                <td class="px-4 py-3 border-r">{from? from.slice(0, 16) : ''}...</td>
+                <td class="px-4 py-3 border-r">{to? to.slice(0, 16) : ''}...</td>
                 <td class="px-4 py-3 border-r">{value}</td>
                 <td class="px-4 py-3">{ (Number(gas) * Number(gasPrice) / 1000000000 / 1000000000).toFixed(8)}</td>
             </tr>
